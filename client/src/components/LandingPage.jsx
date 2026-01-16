@@ -18,8 +18,13 @@ function LandingPage() {
     }
   }
 
+ const handleCategoryClick = (categoryName) => {
+  if (!searchText.includes(categoryName)) {
+    setSearchText((prev) => `${prev} ${categoryName}`.trim());
+  }
+};
+
   useEffect(() => {
-    // Initial load with empty or default keyword if needed
     searchTrips(searchText);
   }, [searchText]);
 
@@ -82,7 +87,7 @@ function LandingPage() {
                   <span key={index} className="flex items-center">
                     <button 
                       className="underline hover:text-blue-500"
-                      onClick={() => setSearchText(tag)}
+                      onClick={() => handleCategoryClick(tag)}
                     >
                       {tag}
                     </button>
