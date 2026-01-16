@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'lucide-react';
+import { CircleX } from 'lucide-react';
 
 function LandingPage() {
   const [trips, setTrips] = useState([]);
@@ -26,7 +27,7 @@ function LandingPage() {
     <div className="flex flex-col items-center max-w-6xl mx-auto p-8 font-sans">
       <h1 className="text-5xl font-bold text-[#2c7cd1] mb-12">เที่ยวไหนดี</h1>
       
-      <div className="w-full max-w-4xl mb-12">
+      <div className="w-full max-w-4xl mb-12 relative">
         <p className="mb-2 flex text-center font-medium">ค้นหาที่เที่ยว</p>
         <input
           type="text"
@@ -34,8 +35,16 @@ function LandingPage() {
           placeholder="หาที่เที่ยวแล้วไปกัน..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          style={{ padding: "0.5rem" }}
+          style={{ padding: "0.5rem" }}     
         />
+        {searchText && (
+          <button 
+            className="absolute right-4 bottom-2 text-gray-400 hover:text-gray-600 transition-colors"
+            onClick={() => setSearchText("")}
+          >
+            <CircleX size={24} />
+          </button>
+        )}
       </div>
       
       <div className="flex flex-col gap-16 w-full">
