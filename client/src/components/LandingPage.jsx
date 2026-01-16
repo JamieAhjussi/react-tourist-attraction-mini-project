@@ -29,10 +29,10 @@ function LandingPage() {
   }, [searchText]);
 
   return (
-    <div className="flex flex-col items-center max-w-6xl mx-auto p-8 font-sans">
+    <div className="flex flex-col items-center max-w-7xl mx-auto p-8 font-sans">
       <h1 className="text-5xl font-bold text-[#2c7cd1] mb-12">เที่ยวไหนดี</h1>
       
-      <div className="w-full max-w-4xl mb-12 relative">
+      <div className="w-full max-w-6xl mb-12 relative">
         <p className="mb-2 flex text-center font-medium">ค้นหาที่เที่ยว</p>
         <input
           type="text"
@@ -97,15 +97,13 @@ function LandingPage() {
               </div>
 
               {/* รูปประกอบเล็ก */}
-              <div className="flex gap-6">
+              <div className="flex gap-4 sm:gap-6">
                 {trip.photos.slice(1, 4).map((photo, index) => (
                   <img
                     key={index}
                     src={photo}
                     alt={`${trip.title} thumbnail ${index}`}
-                    className="w-24 h-24 object-cover rounded-2xl cursor-pointer hover:opacity-80 transition-opacity"
-                    width="350"
-                    height="350"
+                    className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-2xl cursor-pointer hover:opacity-80 transition-opacity"
                   />
                 ))}
               </div> 
